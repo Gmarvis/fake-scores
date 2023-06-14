@@ -1,34 +1,24 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { ScoreContext } from "../context/AppContext";
 
 export const Flags = () => {
+  const { teamData } = useContext(ScoreContext);
   const [clubs, setClubs] = useState([]);
   const [countries, setCountries] = useState([]);
 
-  const getData = () => {
-    fetch("football.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        setClubs(data.clubs);
-        setCountries(data.countries);
-        // console.log("team =", data);
-        return data;
-      });
-  };
-  console.clear;
-  console.log("clubs", clubs);
-  console.log("countries, ", countries);
+  console.log("cluds", { teamData });
 
   useEffect(() => {
-    getData();
-  }, []);
+    setClubs(teamData?.clubs);
+    setCountries(teamData?.countries);
+  }, [teamData]);
+
+  // handle team selection
+
+  const handleSelection = ()=>{
+    // alert(key)
+  }
 
   return (
     <div>
@@ -39,13 +29,16 @@ export const Flags = () => {
           type="text"
           placeholder="search team"
         />
+        <div className="htext">
+          <h3>Countries</h3>
+          <h3>Clubs</h3>
+        </div>
         <div className="Cf">
           <div className="teams">
-            <h3>Clountries</h3>
-            <div className="countries">
-              {countries?.map((team) => {
+            <div className="countrySection">
+              {countries?.map((team, i) => {
                 return (
-                  <div key={team.country} className="teamSection">
+                  <div key={team.country + i} onClick={handleSelection} className="teamSection">
                     <img className="teamFlags" src={team.flag} alt="flag" />
                     <p>{team.country}</p>
                   </div>
@@ -55,11 +48,10 @@ export const Flags = () => {
           </div>
 
           <div className="teams">
-            <h3>Clubs</h3>
-            <div className="countries">
-              {clubs?.map((club) => {
+            <div className="clubsSection">
+              {clubs?.map((club, i) => {
                 return (
-                  <div key={club.name} className="teamSection">
+                  <div key={club.name + i} onClick={handleSelection} className="teamSection">
                     <img className="teamFlags" src={club.url} alt="flag" />
                     <p>{club.name}</p>
                   </div>
@@ -69,8 +61,6 @@ export const Flags = () => {
           </div>
         </div>
       </div>
-
-      <div></div>
     </div>
   );
 };
