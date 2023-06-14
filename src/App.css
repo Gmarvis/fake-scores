@@ -4,7 +4,7 @@
 
 .teamFlags {
   @apply m-auto h-5/6 p-2;
-  background-color: rgba(0, 0, 0, 0.356);
+  background-color: rgba(236, 228, 228, 0.356);
   height: 90vh;
   width: 40%;
 }
@@ -66,6 +66,7 @@ h3 {
 }
 
 .subContainer {
+  display: none;
   margin-top: 50rem;
   background-color: #ffffffce;
   height: 35vh;
@@ -76,3 +77,26 @@ h3 {
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
+
+.teams {
+  overflow: scroll;
+}
+
+.teamSection {
+  text-align: center;
+  object-fit: contain;
+}
+
+.teamSection img {
+  width: 8rem;
+  height: auto;
+  filter: brightness(100%);
+  filter: grayscale(20%);
+}
+
+
+/* display team */
+/* .teamFlags {
+  width: 5rem;
+  height: auto;
+} */
