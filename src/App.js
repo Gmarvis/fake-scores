@@ -8,6 +8,7 @@ import { useEffect } from "react";
 
 function App() {
   const [teamData, setTeamData] = useState(null);
+  console.log(teamData);
   const getData = () => {
     fetch("football.json", {
       headers: {
