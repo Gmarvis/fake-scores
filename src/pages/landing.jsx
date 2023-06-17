@@ -1,10 +1,43 @@
-import React, { useContext, useEffect, useState, createRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { createRef } from "react";
 import { ScoreContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
-import { ScreenShot } from "../components/screenshot";
+import { useScreenshot, createFileName } from "use-react-screenshot";
+import { EditScores } from "../components/editScores";
 
 export const Landing = () => {
-  const ref = createRef(null)
+  /*implement sreenShot */
+  const ref = createRef(null);
+
+  const [image, takeScreenshot] = useScreenshot({
+    type: "image/png",
+    quality: 5.1,
+  });
+
+  const download = (
+    image,
+    { name = "screen capture", extension = "jpg" } = {}
+  ) => {
+    const a = document.createElement("a");
+    a.href = image;
+    a.download = createFileName(extension, name);
+    a.click();
+  };
+
+  const downloadScreenshot = () => {
+    takeScreenshot(ref.current).then(download);
+  };
+
+  // const ref = createRef(null);
+  // const [image, takeScreenshot] = useScreenshot({
+  //   type: "image/jpeg",
+  //   quality: 1.0,
+  // });
+  // const getImage = () => takeScreenshot(ref.current);
+  /*implement sreenShot end*/
+
+  /* new fubtion for enable content edit*/
+
 
   const { teamData } = useContext(ScoreContext);
   const [choice, setChoice] = useState({});
@@ -49,16 +82,16 @@ export const Landing = () => {
   }, []);
 
   return (
-    <div>
-      <div className=" thead" ref={ref}>
+    <div ref={ref}>
+      <div className=" thead">
         <div className="top-container">
           <br />
           <br />
           <br />
           <br />
-          <div className="subContainer">
-            <div className="display">
-              <div onClick={selectHome} className="select">
+          <div className="subContainer" ref={ref}>
+            <div className="display" >
+              <div onClick={selectHome} className="select" ref={ref}>
                 <img
                   src={choice?.teams?.home?.url || choice?.teams?.home?.flag}
                   className="displayFlag"
@@ -72,7 +105,8 @@ export const Landing = () => {
                 <h2>Home</h2>
               </div>
               <div className="scores">
-                <p>4 : 2</p>
+                {/* <p>4 : 2</p> */}
+                <EditScores />
               </div>
               <div onClick={selectAway} className="select">
                 <img
@@ -90,7 +124,7 @@ export const Landing = () => {
               </div>
             </div>
             <div className="captureBtn mt-20 text-white">
-              <ScreenShot />
+              <button onClick={downloadScreenshot}>Capture</button>
             </div>
           </div>
         </div>
