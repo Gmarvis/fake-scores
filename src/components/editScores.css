@@ -1,0 +1,8 @@
+h1 {
+    font-size: 40px;
+}
+
+.editScores {
+    display: flex;
+    margin: 40px 0;
+}

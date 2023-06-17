@@ -3,6 +3,7 @@ import { createRef } from "react";
 import { ScoreContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 import { useScreenshot, createFileName } from "use-react-screenshot";
+import { EditScores } from "../components/editScores";
 
 export const Landing = () => {
   /*implement sreenShot */
@@ -34,6 +35,9 @@ export const Landing = () => {
   // });
   // const getImage = () => takeScreenshot(ref.current);
   /*implement sreenShot end*/
+
+  /* new fubtion for enable content edit*/
+
 
   const { teamData } = useContext(ScoreContext);
   const [choice, setChoice] = useState({});
@@ -101,7 +105,8 @@ export const Landing = () => {
                 <h2>Home</h2>
               </div>
               <div className="scores">
-                <p>4 : 2</p>
+                {/* <p>4 : 2</p> */}
+                <EditScores />
               </div>
               <div onClick={selectAway} className="select">
                 <img
