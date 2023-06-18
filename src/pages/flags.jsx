@@ -30,7 +30,7 @@ export const Flags = () => {
       sessionStorage.setItem("select", JSON.stringify(select));
     }
 
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -39,7 +39,7 @@ export const Flags = () => {
       <div className="teamFlags">
         <div className="setStoresSection bg-white text-blue-950">
           <h3>Home</h3>
-          <h3>4 : 2</h3>
+          <h3>0 : 0</h3>
           <h3>Away</h3>
         </div>
 
