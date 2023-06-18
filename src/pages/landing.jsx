@@ -116,19 +116,20 @@ export const Landing = () => {
                     choice?.teams?.home?.name || choice?.teams?.home?.country
                   }
                 />
-                <p className="text-center">
+                <p className="clubNames text-center">
                   {choice?.teams?.away?.name || choice?.teams?.away?.country}
                 </p>
 
                 <h2>Away</h2>
               </div>
             </div>
-            <div className="captureBtn mt-20 text-white">
-              <button onClick={downloadScreenshot}>Capture</button>
-            </div>
+
           </div>
         </div>
       </div>
+      <div className="captureBtn mt-20 text-white">
+              <button onClick={downloadScreenshot}>Capture</button>
+            </div>
     </div>
   );
 };
