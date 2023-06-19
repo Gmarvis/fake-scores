@@ -1,15 +1,18 @@
 /* eslint-disable */
+import { SearchBar } from "../components/search";
 import React, { useContext, useEffect, useState } from "react";
 import { ScoreContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 
 export const Flags = () => {
   const { teamData } = useContext(ScoreContext);
+  const {onSeacrh, setOnsearch} = useContext(ScoreContext)
   const [clubs, setClubs] = useState([]);
   const [countries, setCountries] = useState([]);
   const navigate = useNavigate();
-
-  console.log("these are cluds", { teamData });
+  
+console.log("onSeacrh =",onSeacrh)
+  // console.log("these are cluds", { teamData });
 
   useEffect(() => {
     setClubs(teamData?.clubs);
@@ -35,13 +38,19 @@ export const Flags = () => {
 
   return (
     <div>
-      <h2 className="text-center">Choose Terms</h2>
       <div className="teamFlags">
-        <div className="setStoresSection bg-white text-blue-950">
-          <h3>Home</h3>
-          <h3>0 : 0</h3>
-          <h3>Away</h3>
-        </div>
+        <h2 className="text-center">Choose Terms</h2>
+
+        {/* <div className="setStoresSection">
+          <form action="">
+            <input type="search" placeholder="search"/>
+            <button>
+              <GoSearch />
+            </button>
+          </form>
+        </div> */}
+
+        <SearchBar />
 
         <div className="htext">
           <h3>Countries</h3>

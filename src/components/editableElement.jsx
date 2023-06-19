@@ -1,31 +1,3 @@
-// import React, { useEffect } from "react";
-// import { useRef } from "react";
-
-// export const EditableElement = (props) => {
-//   const { onChange } = props;
-//   const element = useRef();
-//   let elements = React.Children.toArray(props.Children);
-//   if (elements.length > 1) {
-//     throw Error("can't have more than one child");
-//   }
-
-//   const onMouseUp = () => {
-//     const value = element.current?.value || element.current.innerText;
-//     onChange(value);
-//   };
-//   useEffect(() => {
-//     const value = element.current?.value || element.current?.innerText;
-//     onChange(value);
-//   }, []);
-//   elements = React.cloneElement(elements[0], {
-//     contentEditable: true,
-//     suppressContentEditableWarning: true,
-//     ref: element,
-//     onKeyUp: onMouseUp,
-//   });
-//   return elements;
-// };
-
 import React, { useRef, useEffect } from "react";
 
 export const EditableElement = (props) => {
@@ -51,7 +23,7 @@ export const EditableElement = (props) => {
     contentEditable: true,
     suppressContentEditableWarning: true,
     ref: element,
-    onKeyUp: onMouseUp
+    onKeyUp: onMouseUp,
   });
   return elements;
 };
