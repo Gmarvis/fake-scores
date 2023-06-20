@@ -7,6 +7,8 @@ import { ScoreContext } from "./context/AppContext";
 import { useEffect } from "react";
 
 function App() {
+  // search state 
+  const [onSeacrh, setOnsearch]= useState(false)
   const [teamData, setTeamData] = useState(null);
   console.log(teamData);
   const getData = () => {
@@ -30,7 +32,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <ScoreContext.Provider value={{ teamData }}>
+      <ScoreContext.Provider value={{ teamData, onSeacrh, setOnsearch }}>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/flags" element={<Flags />} />

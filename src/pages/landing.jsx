@@ -82,7 +82,7 @@ export const Landing = () => {
   }, []);
 
   return (
-    <div ref={ref}>
+    <div >
       <div className=" thead">
         <div className="top-container">
           <br />
@@ -90,7 +90,7 @@ export const Landing = () => {
           <br />
           <br />
           <div className="subContainer" ref={ref}>
-            <div className="display" >
+            <div className="display" ref={ref}>
               <div onClick={selectHome} className="select" ref={ref}>
                 <img
                   src={choice?.teams?.home?.url || choice?.teams?.home?.flag}
@@ -119,7 +119,6 @@ export const Landing = () => {
                 <p className="clubNames text-center">
                   {choice?.teams?.away?.name || choice?.teams?.away?.country}
                 </p>
-
                 <h2>Away</h2>
               </div>
             </div>
