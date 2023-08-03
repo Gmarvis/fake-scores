@@ -162,7 +162,7 @@ input {
   display: flex;
   padding-top: 2rem;
   justify-content: space-around;
-  color: rgb(4, 4, 19);
+  color: #040413;
   align-items: center;
 }
 
@@ -171,6 +171,17 @@ input {
 
   font-size: 300%;
   font-weight: bolder;
+}
+.editScores {
+/* background-color: red; */
+}
+.editScores input {
+  background-color: transparent;
+  border: none;
+  width: 80px;
+  height: 50px;
+
+  font-size: 30px;
 }
 
 .captureBtn {

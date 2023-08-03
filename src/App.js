@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { Landing } from "./pages/landing";
 import { Flags } from "./pages/flags";
 import { ScoreContext } from "./context/AppContext";
+// import { SearchBar } from "./components/search";
 import { useEffect } from "react";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/flags" element={<Flags />} />
+          
         </Routes>
       </ScoreContext.Provider>
     </div>

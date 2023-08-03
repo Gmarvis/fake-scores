@@ -13,7 +13,7 @@ export const SearchBar = () => {
 
   const handleChange = (e) => {
     setSearchField(e.target.value);
-    
+
     if (e.target.value === "") {
       console.log("empty field detected");
       setOnsearch(false);
@@ -25,7 +25,12 @@ export const SearchBar = () => {
   return (
     <div className="setStoresSection">
       <form action="">
-        <input type="search" defaultValue="it works" placeholder="search" onChange={handleChange} />
+        <input
+          type="search"
+          defaultValue="it works"
+          placeholder="search"
+          onChange={handleChange}
+        />
         <button>
           <GoSearch />
         </button>

@@ -6,13 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 export const Flags = () => {
   const { teamData } = useContext(ScoreContext);
-  const {onSeacrh, setOnsearch} = useContext(ScoreContext)
+  const { onSeacrh, setOnsearch } = useContext(ScoreContext);
   const [clubs, setClubs] = useState([]);
   const [countries, setCountries] = useState([]);
   const navigate = useNavigate();
-  
-console.log("onSeacrh =",onSeacrh)
-  // console.log("these are cluds", { teamData });
+
+  console.log("onSeacrh =", onSeacrh);
 
   useEffect(() => {
     setClubs(teamData?.clubs);
@@ -41,16 +40,7 @@ console.log("onSeacrh =",onSeacrh)
       <div className="teamFlags">
         <h2 className="text-center">Choose Terms</h2>
 
-        {/* <div className="setStoresSection">
-          <form action="">
-            <input type="search" placeholder="search"/>
-            <button>
-              <GoSearch />
-            </button>
-          </form>
-        </div> */}
-
-        <SearchBar />
+        {/* <SearchBar /> */}
 
         <div className="htext">
           <h3>Countries</h3>
