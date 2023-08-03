@@ -28,17 +28,6 @@ export const Landing = () => {
     takeScreenshot(ref.current).then(download);
   };
 
-  // const ref = createRef(null);
-  // const [image, takeScreenshot] = useScreenshot({
-  //   type: "image/jpeg",
-  //   quality: 1.0,
-  // });
-  // const getImage = () => takeScreenshot(ref.current);
-  /*implement sreenShot end*/
-
-  /* new fubtion for enable content edit*/
-
-
   const { teamData } = useContext(ScoreContext);
   const [choice, setChoice] = useState({});
   const navigate = useNavigate();
@@ -82,7 +71,7 @@ export const Landing = () => {
   }, []);
 
   return (
-    <div >
+    <div>
       <div className=" thead">
         <div className="top-container">
           <br />
@@ -105,7 +94,6 @@ export const Landing = () => {
                 <h2>Home</h2>
               </div>
               <div className="scores">
-                {/* <p>4 : 2</p> */}
                 <EditScores />
               </div>
               <div onClick={selectAway} className="select">
@@ -122,13 +110,12 @@ export const Landing = () => {
                 <h2>Away</h2>
               </div>
             </div>
-
           </div>
         </div>
       </div>
       <div className="captureBtn mt-20 text-white">
-              <button onClick={downloadScreenshot}>Capture</button>
-            </div>
+        <button onClick={downloadScreenshot}>Capture</button>
+      </div>
     </div>
   );
 };
